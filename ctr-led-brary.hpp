@@ -50,12 +50,3 @@ class LED {
 		// Generates a Led Pattern, only one led pattern can be played at the same.
 		static RGBLedPattern GeneratePattern(LED_Color color, LED_PatType type, float delay_time, float loop_delay, u8 smooth = 0, float r_shift = 0, float g_shift = 0, float b_shift = 0);
 };
-
-
-/* Example
-
-Since the time is stored in one byte, the minimum amount of time is 1/16 seconds.
-
-Infinite delay time (only the first sample is played): delay_time = 0 seconds
-loop only once: loop_delay > 16 seconds
-*/
