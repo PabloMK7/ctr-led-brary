@@ -26,8 +26,17 @@ Result LED::Init() {
 	return res;
 }
 
-bool LED::PlayLEDPattern(RGBLedPattern pattern, Time playtime) {
+bool LED::PlayLEDPattern(RGBLedPattern pattern) {
 	if (IsPatternPlaying()) return false;
+	pattern.unknown1 = 0;
+	if (Init() < 0) return false;
+	if (Play(pattern) < 0) return false;
+	SecureLock = true;
+	return true;
+}
+
+bool LED::SwitchLEDPattern(RGBLedPattern pattern) {
+	if (!IsPatternPlaying()) return false;
 	pattern.unknown1 = 0;
 	if (Init() < 0) return false;
 	if (Play(pattern) < 0) return false;

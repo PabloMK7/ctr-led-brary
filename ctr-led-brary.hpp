@@ -1,5 +1,5 @@
 
-#include "3ds.hpp"
+#include "3DS.h"
 
 
 struct RGBLedPattern
@@ -45,17 +45,10 @@ class LED {
 		static bool IsPatternPlaying();
 		// Plays a generated pattern, returns true if played successfully.
 		static bool PlayLEDPattern(RGBLedPattern pattern);
+		// Switches the current playing pattern in no time, returns true if switched successfully.
+		static bool SwitchLEDPattern(RGBLedPattern pattern);
 		// Stops any playing pattern, returns true if stopped successfully.
 		static bool StopLEDPattern();
 		// Generates a Led Pattern, only one led pattern can be played at the same.
 		static RGBLedPattern GeneratePattern(LED_Color color, LED_PatType type, float delay_time, float loop_delay, u8 smooth = 0, float r_shift = 0, float g_shift = 0, float b_shift = 0);
 };
-
-
-/* Example
-
-Since the time is stored in one byte, the minimum amount of time is 1/16 seconds.
-
-Infinite delay time (only the first sample is played): delay_time = 0 seconds
-loop only once: loop_delay > 16 seconds
-*/
