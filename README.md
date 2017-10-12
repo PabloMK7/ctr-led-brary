@@ -2,7 +2,7 @@
 Small c++ library to play patterns with the 3DS RGB notification LED. This is only meant for developers, not an standalone homebrew app.
 
 ## Description
-The 3DS notification led is a RGB256 led which can (theorically) display 2^24 different colors.
+The 3DS notification led is a RGB256 led which can (theorically) display 2^24 different colors (including black).
 This library allows to play patterns using the ptm sysmodule. Read below for an explanation of how the library works.
 
 ## LED Patterns
