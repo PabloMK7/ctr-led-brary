@@ -16,7 +16,7 @@ void displayinfo(int d, int sec) {
 	while (true) {
 		consoleClear();
 		printf("Playing pattern: %d\nTime: %d seconds.\n\n\nHold START to exit.", d, dispSec);
-		svcSleepThread(1000000000);
+		svcSleepThread(1000000000); // The way the timing is handled here is very imprecise, that causes a bigger error with bigger play times.
 		hidScanInput();
 		dispSec++;
 		if (dispSec >= sec) return;
