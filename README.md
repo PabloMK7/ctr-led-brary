@@ -5,6 +5,13 @@ Small c++ library to play patterns with the 3DS RGB notification LED. This is on
 The 3DS notification led is a RGB256 led which can (theorically) display 2^24 different colors (including black).
 This library allows to play patterns using the ptm sysmodule. Read below for an explanation of how the library works.
 
+## Installation
+Clone the repository, cd to inside your local copy (with the Makefile), then run `make` and `make install`.  THe library should be installed after that.
+
+When writing applications, make sure to check that -lctr-led-brary is mentioned in your Makefile like so:
+
+```LIBS	:= -lctr-led-brary -lctru -lm```
+
 ## LED Patterns
 The way the ptm sysmodule plays LED patterns is with the RGBLedPattern struct. This struct contains 32 RGB256 samples (three bytes each for red, green and blue) which are played sequentially and can be optionally looped. Additionally, it holds the amount of time the whole pattern takes to be played, a smooth value, the amount of time between loops and an unknown value (?) all of them stored in one byte each (https://3dbrew.org/wiki/MCURTC:SetInfoLEDPattern). While all the RGB samples can be introduced manually by editing the struct, this library provides a generator to create multiple pattern types. This is done using the pattern generation method: ```LED::GeneratePattern(LED_Color color, LED_PatType type, float delay_time, float loop_delay, u8 smooth = 0, float r_shift = 0, float g_shift = 0, float b_shift = 0);```
  - ```LED_Color color```: The RGB color to be played by the LED. It can be passed using the LED_Color struct, for example the color red would be: 
