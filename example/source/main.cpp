@@ -1,7 +1,7 @@
 #include <3ds.h>
 #include <stdio.h>
 #include "math.h"
-#include "ctr-led-brary.hpp"
+#include <ctr-led-brary.hpp>
 
 void updateScreens() {
 		// Flush and swap framebuffers
